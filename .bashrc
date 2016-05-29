@@ -111,3 +111,14 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# ALIASES
+alias ack-grep=~/.dotfiles/scripts/perl/ack-grep.pl
+
+
+
+# SCRIPTS
+. ~/.dotfiles/scripts/bash/hhighlighter.sh
+
+# SYMLINKS
+ln .vim/.vimrc .vimrc
