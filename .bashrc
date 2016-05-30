@@ -121,4 +121,4 @@ alias ack-grep=~/.dotfiles/scripts/perl/ack-grep.pl
 . ~/.dotfiles/scripts/bash/hhighlighter.sh
 
 # SYMLINKS
-ln .vim/.vimrc .vimrc
+ln ~/.vim/.vimrc ~/.vimrc
