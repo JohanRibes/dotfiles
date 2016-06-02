@@ -112,6 +112,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+
+
+
+
 # ALIASES
 alias ack-grep=~/.dotfiles/scripts/perl/ack-grep.pl
 
@@ -121,4 +126,4 @@ alias ack-grep=~/.dotfiles/scripts/perl/ack-grep.pl
 . ~/.dotfiles/scripts/bash/hhighlighter.sh
 
 # SYMLINKS
-ln ~/.vim/.vimrc ~/.vimrc
+ln -sf ~/.vim/.vimrc ~/.vimrc
