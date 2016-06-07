@@ -4,7 +4,7 @@ set number
 set nocompatible              	" be iMproved, required
 filetype off                  	" required
 
-"set noshowmode 			" Disable mode info below lightline
+set noshowmode 			" Disable mode info below lightline
 
 
 
