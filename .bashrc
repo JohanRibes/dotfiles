@@ -113,17 +113,22 @@ if ! shopt -oq posix; then
 fi
 
 
+######################################################
+######################################################
+# My config
+######################################################
+######################################################
 
-
-
+# PATH
+PATH=$PATH:/home/pi/.dotfiles/bin
 
 # ALIASES
-alias ack-grep=~/.dotfiles/scripts/perl/ack-grep.pl
-
-
+#alias ack-grep='~/.dotfiles/scripts/perl/ack-grep.pl'
 
 # SCRIPTS
 . ~/.dotfiles/scripts/bash/hhighlighter.sh
 
 # SYMLINKS
 ln -sf ~/.vim/.vimrc ~/.vimrc
+ln -sf ~/.dotfiles/scripts/perl/ack-grep.pl ~/.dotfiles/bin/ack-grep
+ln -sf ~/.dotfiles/scripts/bash/hhighlighter.sh ~/.dotfiles/bin/h
