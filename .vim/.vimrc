@@ -14,12 +14,13 @@ call vundle#begin()
 
 " ###################################################################
 " ###################################################################
-" ###################################################################
-	Plugin 'VundleVim/Vundle.vim'			" Package manager
+	Plugin 'VundleVim/Vundle.vim'		" Package manager
 	Plugin 'itchyny/lightline.vim'
-	Plugin 'flazz/vim-colorschemes'			" Syntax
-	Plugin 'yggdroot/indentline'			" Indentation
-	Plugin 'ap/vim-css-color'			" CSS color highlight	
+	Plugin 'flazz/vim-colorschemes'		" Syntax
+	Plugin 'yggdroot/indentline'		" Indentation
+	Plugin 'ap/vim-css-color'		" CSS color highlight	
+	Plugin 'ervandew/supertab'
+	Plugin 'scrooloose/nerdcommenter'
 " ###################################################################
 " ###################################################################
 " ###################################################################
@@ -27,7 +28,6 @@ call vundle#begin()
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
 
 " Vim Lightline config
 set laststatus=2
@@ -42,3 +42,6 @@ let g:indentLine_color_term = 239
 let g:indentLine_char = '|'
 :set list listchars=tab:\|_,eol:¶,nbsp:~
 
+"<leader> change for NerdComment
+let mapleader=","
+set timeout timeoutlen=1500

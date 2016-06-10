@@ -126,9 +126,8 @@ PATH=$PATH:/home/pi/.dotfiles/bin
 #alias ack-grep='~/.dotfiles/scripts/perl/ack-grep.pl'
 
 # SCRIPTS
-. ~/.dotfiles/scripts/bash/hhighlighter.sh
+. ~/.dotfiles/scripts/bash/hhighlighter.sh 		# Source this script
 
 # SYMLINKS
 ln -sf ~/.vim/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/scripts/perl/ack-grep.pl ~/.dotfiles/bin/ack-grep
-ln -sf ~/.dotfiles/scripts/bash/hhighlighter.sh ~/.dotfiles/bin/h
