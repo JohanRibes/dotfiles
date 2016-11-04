@@ -2,7 +2,7 @@
 " Filename: autoload/lightline.vim
 " Author: itchyny
 " License: MIT License
-" Last Change: 2016/05/14 13:20:45.
+" Last Change: 2016/10/05 08:00:00.
 " =============================================================================
 
 let s:save_cpo = &cpo
@@ -111,6 +111,7 @@ let s:_lightline = {
       \     'modified': '&modified||!&modifiable', 'readonly': '&readonly', 'paste': '&paste', 'spell': '&spell'
       \   },
       \   'component_function': {},
+      \   'component_function_visible_condition': {},
       \   'component_expand': {
       \     'tabs': 'lightline#tabs'
       \   },
@@ -190,10 +191,6 @@ function! lightline#colorscheme() abort
     let s:lightline.colorscheme = 'default'
     let s:lightline.palette = g:lightline#colorscheme#{s:lightline.colorscheme}#palette
   finally
-    let s:highlight = {}
-    call lightline#highlight('normal')
-    call lightline#link()
-    let s:_ = 0
     if has('win32') && !has('gui_running') && &t_Co < 256
       for u in values(s:lightline.palette)
         for v in values(u)
@@ -203,6 +200,10 @@ function! lightline#colorscheme() abort
         endfor
       endfor
     endif
+    let s:highlight = {}
+    call lightline#highlight('normal')
+    call lightline#link()
+    let s:_ = 0
   endtry
 endfunction
 
@@ -263,7 +264,7 @@ endif
 function! lightline#highlight(...) abort
   let [c, f] = [s:lightline.palette, s:lightline.mode_fallback]
   let [s:lightline.llen, s:lightline.rlen] = [len(c.normal.left), len(c.normal.right)]
-  let [s:lightline.tab_llen,  s:lightline.tab_rlen] = [len(has_key(get(c, 'tabline', {}),  'left') ? c.tabline.left : c.normal.left),  len(has_key(get(c, 'tabline', {}),  'right') ? c.tabline.right : c.normal.right)]
+  let [s:lightline.tab_llen, s:lightline.tab_rlen] = [len(has_key(get(c, 'tabline', {}), 'left') ? c.tabline.left : c.normal.left), len(has_key(get(c, 'tabline', {}), 'right') ? c.tabline.right : c.normal.right)]
   let types = map(s:uniq(sort(filter(values(s:lightline.component_type), 'v:val !=# "raw"'))), '[v:val, 1]')
   let modes = a:0 ? [a:1] : extend(['normal', 'insert', 'replace', 'visual', 'inactive', 'command', 'select', 'tabline'], has('nvim') ? ['terminal'] : [])
   for mode in modes
@@ -276,7 +277,7 @@ function! lightline#highlight(...) abort
     let rs = has_key(get(c, d, {}), 'right') ? c[d].right : has_key(f, d) && has_key(get(c, f[d], {}), 'right') ? c[f[d]].right : c.normal.right
     for [p, l, zs] in [['Left', len(left), ls], ['Right', len(right), rs]]
       for [i, t] in map(range(0, l), '[v:val, 0]') + types
-        if i != l
+        if i < l || i < 1
           let r = t ? (has_key(get(c, d, []), i) ? c[d][i][0] : has_key(get(c, 'tabline', {}), i) ? c.tabline[i][0] : get(c.normal, i, zs)[0]) : get(zs, i, ms)
           exec printf('hi LightLine%s_%s_%s guifg=%s guibg=%s ctermfg=%s ctermbg=%s %s', p, mode, i, r[0], r[1], r[2], r[3], s:term(r))
         endif
@@ -293,11 +294,11 @@ function! lightline#highlight(...) abort
 endfunction
 
 function! s:subseparator(components, subseparator, expanded) abort
-  let [a, c, f, v] = [ a:components, s:lightline.component, s:lightline.component_function,  s:lightline.component_visible_condition ]
+  let [a, c, f, v, u ] = [ a:components, s:lightline.component, s:lightline.component_function, s:lightline.component_visible_condition, s:lightline.component_function_visible_condition ]
   let xs = map(range(len(a:components)), 'a:expanded[v:val] ? "1" :
-        \ has_key(f, a[v:val]) ? (exists("*".f[a[v:val]]) ? "" : "exists(\"*".f[a[v:val]]."\")&&").f[a[v:val]]."()!=#\"\"" :
-        \ has_key(v, a[v:val]) ? "(" . v[a[v:val]] . ")" : has_key(c, a[v:val]) ? "1" : "0"')
-  return '%{' . (xs[0] ==# '1' ? '' : xs[0] . '&&(') . join(xs[1:], '||') . (xs[0] ==# '1' ? '' : ')') . '?"' . a:subseparator . '":""}'
+        \ has_key(f, a[v:val]) ? (has_key(u, a[v:val]) ? "(".u[a[v:val]].")" : (exists("*".f[a[v:val]]) ? "" : "exists(\"*".f[a[v:val]]."\")&&").f[a[v:val]]."()!=#\"\"") :
+        \ has_key(v, a[v:val]) ? "(".v[a[v:val]].")" : has_key(c, a[v:val]) ? "1" : "0"')
+  return '%{' . (xs[0] ==# '1' || xs[0] ==# '(1)' ? '' : xs[0] . '&&(') . join(xs[1:], '||') . (xs[0] ==# '1' || xs[0] ==# '(1)' ? '' : ')') . '?"' . a:subseparator . '":""}'
 endfunction
 
 function! lightline#concatenate(xs, right) abort
@@ -324,7 +325,7 @@ endfunction
 
 function! s:evaluate_expand(component) abort
   try
-    let result = call(a:component, [])
+    let result = eval(a:component . '()')
     if type(result) == 1 && result ==# ''
       return []
     endif

@@ -120,15 +120,18 @@ fi
 ######################################################
 
 # PATH
-PATH=$PATH:~/.dotfiles/bin
+PATH=$PATH:~/bin/			# Ajouter les bin persos au path
 
 # ALIASES
-#alias ack-grep='~/.dotfiles/scripts/perl/ack-grep.pl'
 
 # SYMLINKS
-ln -sf ~/.dotfiles/.bashrc ~/.bashrc
-ln -sf ~/.vim/.vimrc ~/.vimrc
-ln -sf ~/.dotfiles/scripts/perl/ack-grep.pl ~/.dotfiles/bin/ack-grep
+ln -sf ~/dotfiles/bin ~/bin			# Les bin du repo dotfiles
+ln -sf ~/dotfiles/.bash/.bashrc ~/.bashrc	# Le .bashrc
+ln -sf ~/dotfiles/.bash/.bash_profile ~/.bash_profile
+ln -sf ~/dotfiles/.vim/.vimrc ~/.vimrc
+ln -sf ~/dotfiles/.vim	~/.vim
+ln -sf ~/dotfiles/scripts/perl/ack-grep.pl ~/dotfiles/bin/ack-grep
 
-# SCRIPTS
-. ~/.dotfiles/scripts/bash/hhighlighter.sh 		# Source this script
+
+# SCRIPT to source
+. ~/dotfiles/scripts/bash/hhighlighter.sh
