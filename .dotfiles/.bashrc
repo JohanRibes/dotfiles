@@ -125,10 +125,10 @@ PATH=$PATH:~/.dotfiles/bin
 # ALIASES
 #alias ack-grep='~/.dotfiles/scripts/perl/ack-grep.pl'
 
-# SCRIPTS
-. ~/.dotfiles/scripts/bash/hhighlighter.sh 		# Source this script
-
 # SYMLINKS
 ln -sf ~/.dotfiles/.bashrc ~/.bashrc
 ln -sf ~/.vim/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/scripts/perl/ack-grep.pl ~/.dotfiles/bin/ack-grep
+
+# SCRIPTS
+. ~/.dotfiles/scripts/bash/hhighlighter.sh 		# Source this script
