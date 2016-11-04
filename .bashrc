@@ -120,7 +120,7 @@ fi
 ######################################################
 
 # PATH
-PATH=$PATH:/home/pi/.dotfiles/bin
+PATH=$PATH:~/.dotfiles/bin
 
 # ALIASES
 #alias ack-grep='~/.dotfiles/scripts/perl/ack-grep.pl'
