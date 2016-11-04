@@ -130,8 +130,10 @@ ln -sf ~/dotfiles/.bash/.bashrc ~/.bashrc	# Le .bashrc
 ln -sf ~/dotfiles/.bash/.bash_profile ~/.bash_profile
 ln -sf ~/dotfiles/.vim/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.vim	~/.vim
-ln -sf ~/dotfiles/scripts/perl/ack-grep.pl ~/dotfiles/bin/ack-grep
+ln -sf ~/dotfiles/cheatsheets/ ~/cheatsheets
 
+# SYMLINKS for ~/bin
+ln -sf ~/dotfiles/scripts/perl/ack-grep.pl ~/dotfiles/bin/ack-grep
 
 # SCRIPT to source
 . ~/dotfiles/scripts/bash/hhighlighter.sh
