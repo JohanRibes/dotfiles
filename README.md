@@ -1,7 +1,7 @@
 # .dotfile
 
 
-## Install ##-
+## Install ##
 
 ```shell
 git init .
