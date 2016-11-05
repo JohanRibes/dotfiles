@@ -122,6 +122,9 @@ fi
 # PATH
 PATH=$PATH:~/bin/			# Ajouter les bin persos au path
 
+# ENV
+export TERM=xterm-256color
+
 # ALIASES
 
 # SYMLINKS
@@ -137,3 +140,8 @@ ln -sf ~/dotfiles/scripts/perl/ack-grep.pl ~/dotfiles/bin/ack-grep
 
 # SCRIPT to source
 . ~/dotfiles/scripts/bash/hhighlighter.sh
+
+# BANNER
+clear
+cat ~/dotfiles/.bash/banner
+date
