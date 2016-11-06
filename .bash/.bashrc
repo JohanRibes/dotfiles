@@ -116,14 +116,18 @@ fi
 ######################################################
 ######################################################
 # My config
+# Terminal and Vim BGCOLOR is #262626 or 235
 ######################################################
 ######################################################
+
 
 # PATH
 PATH=$PATH:~/bin/			# Ajouter les bin persos au path
 
 # ENV
 export TERM=xterm-256color
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # ALIASES
 
@@ -140,6 +144,23 @@ ln -sf ~/dotfiles/scripts/perl/ack-grep.pl ~/dotfiles/bin/ack-grep
 
 # SCRIPT to source
 . ~/dotfiles/scripts/bash/hhighlighter.sh
+
+# PS*
+export DATE=`date +%H:%M:%S`
+rightprompt() { printf "\033[38;5;238m%*s" $COLUMNS $DATE; }
+export BGCOLOR="\033[48;5;235m"
+export REPEAT="\033[k"
+export ALPHACOLOR="\033[38;5;160m"
+export PS1='\[$(tput sc;rightprompt; tput rc)\]'$BGCOLOR$ALPHACOLOR"λ \e[0m"$BGCOLOR$REPEAT
+export PS2=$BGCOLOR">"$REPEAT
+export PS3=$BGCOLOR$REPEAT
+export PS4=$BGCOLOR"+"$REPEAT
+unset BGCOLOR
+unset REPEAT
+unset ALPHACOLOR
+
+# COLOR !
+printf $BGCOLOR$REPEAT
 
 # BANNER
 clear
