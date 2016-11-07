@@ -119,7 +119,14 @@ fi
 # Terminal and Vim BGCOLOR is #262626 or 235
 ######################################################
 ######################################################
-
+# LSTYPE
+if ls --color -d . >/dev/null 2>&1; then
+	GNU_LS=1
+elif ls -G -d . >/dev/null 2>&1; then
+	BSD_LS=1
+else
+	SOLARIS_LS=1
+fi
 
 # PATH
 PATH=$PATH:~/bin/			# Ajouter les bin persos au path
@@ -146,15 +153,16 @@ ln -sf ~/dotfiles/scripts/perl/ack-grep.pl ~/dotfiles/bin/ack-grep
 . ~/dotfiles/scripts/bash/hhighlighter.sh
 
 # PS*
-export DATE=`date +%H:%M:%S`
-rightprompt() { printf "\033[38;5;238m%*s" $COLUMNS $DATE; }
+#export DATE=`date +%H:%M:%S`
+#rightprompt() { printf "\033[38;5;238m%*s" $COLUMNS $DATE; }
 export BGCOLOR="\033[48;5;235m"
 export REPEAT="\033[k"
 export ALPHACOLOR="\033[38;5;160m"
-export PS1='\[$(tput sc;rightprompt; tput rc)\]'$BGCOLOR$ALPHACOLOR"λ \e[0m"$BGCOLOR$REPEAT
-export PS2=$BGCOLOR">"$REPEAT
-export PS3=$BGCOLOR$REPEAT
-export PS4=$BGCOLOR"+"$REPEAT
+#export PS1='\[$(tput sc;rightprompt; tput rc)\]'$BGCOLOR$ALPHACOLOR"λ \e[0m"$BGCOLOR$REPEAT
+export PS1="$ALPHACOLOR""λ ""\e[0m"
+export PS2=">"
+export PS3=
+export PS4="+"
 unset BGCOLOR
 unset REPEAT
 unset ALPHACOLOR
