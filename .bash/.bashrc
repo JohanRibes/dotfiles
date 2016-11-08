@@ -159,18 +159,19 @@ export BGCOLOR="\033[48;5;235m"
 export REPEAT="\033[k"
 export ALPHACOLOR="\033[38;5;160m"
 #export PS1='\[$(tput sc;rightprompt; tput rc)\]'$BGCOLOR$ALPHACOLOR"λ \e[0m"$BGCOLOR$REPEAT
-export PS1="$ALPHACOLOR""λ ""\e[0m"
+export PS1="\033[38;5;160mλ \033[00m"
 export PS2=">"
 export PS3=
 export PS4="+"
-unset BGCOLOR
-unset REPEAT
-unset ALPHACOLOR
+
+#unset BGCOLOR
+#unset REPEAT
+#unset ALPHACOLOR
 
 # COLOR !
-printf $BGCOLOR$REPEAT
+#printf $BGCOLOR$REPEAT
 
 # BANNER
 clear
-cat ~/dotfiles/.bash/banner
-date
+#cat ~/dotfiles/.bash/banner
+#date
