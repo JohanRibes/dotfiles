@@ -138,6 +138,8 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # ALIASES
 
+
+
 # SYMLINKS
 ln -sf ~/dotfiles/bin ~/bin			# Les bin du repo dotfiles
 ln -sf ~/dotfiles/.bash/.bashrc ~/.bashrc	# Le .bashrc
@@ -153,25 +155,13 @@ ln -sf ~/dotfiles/scripts/perl/ack-grep.pl ~/dotfiles/bin/ack-grep
 . ~/dotfiles/scripts/bash/hhighlighter.sh
 
 # PS*
-#export DATE=`date +%H:%M:%S`
-#rightprompt() { printf "\033[38;5;238m%*s" $COLUMNS $DATE; }
-export BGCOLOR="\033[48;5;235m"
-export REPEAT="\033[k"
-export ALPHACOLOR="\033[38;5;160m"
-#export PS1='\[$(tput sc;rightprompt; tput rc)\]'$BGCOLOR$ALPHACOLOR"λ \e[0m"$BGCOLOR$REPEAT
-export PS1="\033[38;5;160mλ \033[00m"
+export PS1="\[$(tput setaf 1)\]\[$(tput bold)\]λ \[$(tput setaf 3)\]( \[$(tput setaf 7)\]\W\[$(tput setaf 3)\] ) \[$(tput sgr0)\]"
 export PS2=">"
 export PS3=
 export PS4="+"
 
-#unset BGCOLOR
-#unset REPEAT
-#unset ALPHACOLOR
-
-# COLOR !
-#printf $BGCOLOR$REPEAT
 
 # BANNER
 clear
 #cat ~/dotfiles/.bash/banner
-#date
+date

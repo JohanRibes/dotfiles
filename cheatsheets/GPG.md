@@ -25,3 +25,4 @@ https://tetsumaki.net/blog/article/2014-03-01-quelques-commandes-gnupg.html
 http://wiki.cacert.org/ConvertingPgpKeyToCertificate
 http://security.stackexchange.com/questions/9633/how-can-i-convert-my-encypted-pgp-secret-key-for-use-performing-ssh-authenticati
 http://stackoverflow.com/questions/19704950/load-multiple-certificates-into-pkcs12-with-openssl
+https://www.digitalocean.com/community/tutorials/how-to-use-gpg-to-encrypt-and-sign-messages-on-an-ubuntu-12-04-vps#how-to-make-your-public-key-highly-available
