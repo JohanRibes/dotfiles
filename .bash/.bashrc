@@ -27,8 +27,6 @@ shopt -s checkwinsize
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
 
-# make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -76,12 +74,12 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
@@ -119,6 +117,7 @@ fi
 # Terminal and Vim BGCOLOR is #262626 or 235
 ######################################################
 ######################################################
+
 # LSTYPE
 if ls --color -d . >/dev/null 2>&1; then
 	GNU_LS=1
@@ -135,21 +134,32 @@ PATH=$PATH:~/bin/			# Ajouter les bin persos au path
 export TERM=xterm-256color
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+export SYSTEM=`uname -s`
 
-# ALIASES
-
-
+# BIN
+mkdir -p ~/bin
+ln -sf ~/dotfiles/scripts/perl/ack-grep.pl ~/bin/ack-grep
 
 # SYMLINKS
-ln -sf ~/dotfiles/bin ~/bin			# Les bin du repo dotfiles
-ln -sf ~/dotfiles/.bash/.bashrc ~/.bashrc	# Le .bashrc
+ln -sf ~/dotfiles/.bash/.bashrc ~/.bashrc # Le .bashrc
 ln -sf ~/dotfiles/.bash/.bash_profile ~/.bash_profile
+ln -sf ~/dotfiles/.bash/.bash_aliases ~/.bash_aliases
+ln -sf ~/dotfiles/.bash/.bash_functions ~/.bash_functions
+ln -sf ~/dotfiles/.vim/ ~/.vim
 ln -sf ~/dotfiles/.vim/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/.vim	~/.vim
 ln -sf ~/dotfiles/cheatsheets/ ~/cheatsheets
+ln -sf ~/dotfiles/.public/ ~/.public
+ln -sf ~/dotfiles/.private/ ~/.private
 
-# SYMLINKS for ~/bin
-ln -sf ~/dotfiles/scripts/perl/ack-grep.pl ~/dotfiles/bin/ack-grep
+# ALIASES
+if [ -f ~/.bash_aliases ]; then
+	. ~/.bash_aliases
+fi
+
+# FUNCTIONS
+if [ -f ~/.bash_functions ]; then
+	. ~/.bash_functions
+fi
 
 # SCRIPT to source
 . ~/dotfiles/scripts/bash/hhighlighter.sh
@@ -160,8 +170,7 @@ export PS2=">"
 export PS3=
 export PS4="+"
 
-
 # BANNER
 clear
-#cat ~/dotfiles/.bash/banner
+cat ~/dotfiles/.bash/banner
 date
