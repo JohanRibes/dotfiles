@@ -139,12 +139,14 @@ export SYSTEM=`uname -s`
 # BIN
 mkdir -p ~/bin
 ln -sf ~/dotfiles/scripts/perl/ack-grep.pl ~/bin/ack-grep
+ln -sf ~/dotfiles/scripts/bash/dirsha.sh ~/bin/dirsha
 
 # SYMLINKS
 ln -sf ~/dotfiles/.bash/.bashrc ~/.bashrc # Le .bashrc
 ln -sf ~/dotfiles/.bash/.bash_profile ~/.bash_profile
 ln -sf ~/dotfiles/.bash/.bash_aliases ~/.bash_aliases
 ln -sf ~/dotfiles/.bash/.bash_functions ~/.bash_functions
+ln -sf ~/dotfiles/.bash/.bash_colors ~/.bash_colors
 ln -sf ~/dotfiles/.vim/ ~/.vim
 ln -sf ~/dotfiles/.vim/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/cheatsheets/ ~/cheatsheets
@@ -159,6 +161,10 @@ fi
 # FUNCTIONS
 if [ -f ~/.bash_functions ]; then
 	. ~/.bash_functions
+fi
+
+if [ -f ~/.bash_colors ]; then
+	. ~/.bash_colors
 fi
 
 # SCRIPT to source
