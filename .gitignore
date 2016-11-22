@@ -2,3 +2,4 @@ bin/bin
 bin/ack-grep
 cheatsheets/cheatsheets
 .vim/.vim
+bin/
