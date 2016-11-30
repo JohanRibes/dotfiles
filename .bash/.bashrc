@@ -169,6 +169,8 @@ fi
 
 # SCRIPT to source
 . ~/dotfiles/scripts/bash/hhighlighter.sh
+. ~/dotfiles/scripts/bash/extract.sh
+. ~/dotfiles/scripts/bash/functions.sh
 
 # PS*
 export PS1="\[$(tput setaf 1)\]\[$(tput bold)\]λ \[$(tput setaf 3)\]( \[$(tput setaf 7)\]\W\[$(tput setaf 3)\] ) \[$(tput sgr0)\]"
