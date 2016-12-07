@@ -1,0 +1,83 @@
+#session1
+new -n Work
+neww -n Notes /bin/bash 
+neww -n "Remote A" 
+	selectp -t 0 	# select the first (0) pane
+	splitw -h -p 30 # split it into two halves
+	selectp -t 1	# select the new, second (1) pane
+	send-keys 'clear' Enter
+	splitw -v -p 67 # split it into two halves
+	selectp -t 2 	# select the new
+	send-keys 'clear' Enter
+	splitw -v -p 50 # cut it in half
+	send-keys 'clear' Enter
+	selectp -t 0 	# go back to the first pane
+neww -n "Remote B"
+	selectp -t 0 	# select the first (0) pane
+	splitw -h -p 30 # split it into two halves
+	selectp -t 1	# select the new, second (1) pane
+	send-keys 'clear' Enter
+	splitw -v -p 67 # split it into two halves
+	selectp -t 2 	# select the new
+	send-keys 'clear' Enter
+	splitw -v -p 50 # cut it in half
+	send-keys 'clear' Enter
+	selectp -t 0 	# go back to the first pane
+neww -n "Remote C"
+	selectp -t 0 	# select the first (0) pane
+	splitw -h -p 30 # split it into two halves
+	selectp -t 1	# select the new, second (1) pane
+	send-keys 'clear' Enter
+	splitw -v -p 67 # split it into two halves
+	selectp -t 2 	# select the new
+	send-keys 'clear' Enter
+	splitw -v -p 50 # cut it in half
+	send-keys 'clear' Enter
+	selectp -t 0 	# go back to the first pane
+neww -n "Remote D"
+	selectp -t 0 	# select the first (0) pane
+	splitw -h -p 30 # split it into two halves
+	selectp -t 1	# select the new, second (1) pane
+	send-keys 'clear' Enter
+	splitw -v -p 67 # split it into two halves
+	selectp -t 2 	# select the new
+	send-keys 'clear' Enter
+	splitw -v -p 50 # cut it in half
+	send-keys 'clear' Enter
+	selectp -t 0 	# go back to the first pane
+neww -n "Remote E"
+	selectp -t 0 	# select the first (0) pane
+	splitw -h -p 30 # split it into two halves
+	selectp -t 1	# select the new, second (1) pane
+	send-keys 'clear' Enter
+	splitw -v -p 67 # split it into two halves
+	selectp -t 2 	# select the new
+	send-keys 'clear' Enter
+	splitw -v -p 50 # cut it in half
+	send-keys 'clear' Enter
+	selectp -t 0 	# go back to the first pane
+neww -n "Remote F"
+	selectp -t 0 	# select the first (0) pane
+	splitw -h -p 30 # split it into two halves
+	selectp -t 1	# select the new, second (1) pane
+	send-keys 'clear' Enter
+	splitw -v -p 67 # split it into two halves
+	selectp -t 2 	# select the new
+	send-keys 'clear' Enter
+	splitw -v -p 50 # cut it in half
+	send-keys 'clear' Enter
+	selectp -t 0 	# go back to the first pane
+neww -n "Remote G"
+	selectp -t 0 	# select the first (0) pane
+	splitw -h -p 30 # split it into two halves
+	selectp -t 1	# select the new, second (1) pane
+	send-keys 'clear' Enter
+	splitw -v -p 67 # split it into two halves
+	selectp -t 2 	# select the new
+	send-keys 'clear' Enter
+	splitw -v -p 50 # cut it in half
+	send-keys 'clear' Enter
+	selectp -t 0 	# go back to the first pane
+
+selectw -t 0 
+

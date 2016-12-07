@@ -152,6 +152,7 @@ ln -sf ~/dotfiles/.vim/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/cheatsheets/ ~/cheatsheets
 ln -sf ~/dotfiles/.public/ ~/.public
 ln -sf ~/dotfiles/.private/ ~/.private
+ln -sf ~/dotfiles/.tmux/ ~/.tmux
 
 # ALIASES
 if [ -f ~/.bash_aliases ]; then
