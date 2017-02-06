@@ -140,6 +140,8 @@ export SYSTEM=`uname -s`
 mkdir -p ~/bin
 ln -sf ~/dotfiles/scripts/perl/ack-grep.pl ~/bin/ack-grep
 ln -sf ~/dotfiles/scripts/bash/dirsha.sh ~/bin/dirsha
+ln -sf ~/dotfiles/scripts/perl/c7decrypt.pl ~/bin/c7 
+
 
 # SYMLINKS
 ln -sf ~/dotfiles/.bash/.bashrc ~/.bashrc # Le .bashrc

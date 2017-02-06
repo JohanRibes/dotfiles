@@ -1,1 +1,1 @@
-/Users/johan/dotfiles/.tmux/
+/home/u099043/dotfiles/.tmux/
