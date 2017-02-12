@@ -141,6 +141,9 @@ mkdir -p ~/bin
 ln -sf ~/dotfiles/scripts/perl/ack-grep.pl ~/bin/ack-grep
 ln -sf ~/dotfiles/scripts/bash/dirsha.sh ~/bin/dirsha
 ln -sf ~/dotfiles/scripts/perl/c7decrypt.pl ~/bin/c7 
+ln -sf ~/dotfiles/scripts/awk/telnet-extract.awk ~/bin/textract
+ln -sf ~/dotfiles/scripts/expect/telnet.xp ~/bin/tex
+ln -sf ~/dotfiles/scripts/bash/telnet-h.sh ~/bin/th
 
 
 # SYMLINKS
@@ -153,7 +156,6 @@ ln -sf ~/dotfiles/.vim/ ~/.vim
 ln -sf ~/dotfiles/.vim/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/cheatsheets/ ~/cheatsheets
 ln -sf ~/dotfiles/.public/ ~/.public
-ln -sf ~/dotfiles/.private/ ~/.private
 ln -sf ~/dotfiles/.tmux/ ~/.tmux
 
 # ALIASES

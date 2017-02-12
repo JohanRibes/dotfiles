@@ -1,0 +1,23 @@
+#!/usr/bin/expect
+# Simple script to autolog telnet users.
+# Only 3 args: ip, user and password.
+# Usage: ./telnet.xp ip user password 
+
+set ip [lindex $argv 0];
+set user [lindex $argv 1];
+set password [lindex $argv 2]
+
+
+set timeout 20
+spawn telnet $ip 
+expect {
+    -re "login:|Username:" {
+        send "$user\r"
+        expect "*assword:"
+        send "$password\r"; #After this you may want to expect an appropriate prompt (>, $, #, or whatever) prior to handing control over to user
+        interact 
+    }
+    timeout {
+        puts "Timed out while waiting for login prompt"
+    }
+}

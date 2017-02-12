@@ -25,7 +25,7 @@ function extract()      # Handy Extract Program
  function ssh-hosts ()
 {
 	if [ .ssh/config ] ; then
-		cat .ssh/config | grep "Host " | cut -d" " -f2 | nl;
+		cat .ssh/config | grep "^Host " | cut -d" " -f2 | nl;
 	else
 		echo "No .ssh/config file."
 	fi
