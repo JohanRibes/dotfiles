@@ -1,6 +1,5 @@
 #EXTRACT
-function extract()      # Handy Extract Program
-{
+function extract(){ 			# Handy extract programm
     if [ -f $1 ] ; then
         case $1 in
             *.tar.bz2)   tar xvjf $1     ;;
@@ -22,11 +21,16 @@ function extract()      # Handy Extract Program
 }
 
 # SSH HOSTS
- function ssh-hosts ()
-{
+ function ssh-hosts(){
 	if [ .ssh/config ] ; then
 		cat .ssh/config | grep "^Host " | cut -d" " -f2 | nl;
 	else
 		echo "No .ssh/config file."
 	fi
+}
+
+
+function kill-ssh-agent(){
+	export pid=`ps aux | grep 'ssh-agent' | awk 'NR==1{print $1}' | cut -d' ' -f1`
+	kill $pid
 }
